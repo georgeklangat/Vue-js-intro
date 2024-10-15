@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Mastery</title>
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+ <div id="app">
+    <h1>{{product}}</h1>
+    <p>i love {{product}}</p>
+
+    <h2>{{learning_materials}}</h2>
+    <p>{{learning_materials}} are my all time tools in the work place</p>
+    
+ </div>
+ 
+ <!-- import App -->
+ <script src="./main.js"></script> 
+
+ <!-- Mount App -->
+  <script>
+    const mountedApp =app.mount('#app')
+  </script>
+</body>
+</html>
