@@ -1,8 +1,11 @@
 const app = Vue.createApp({
     data: function(){
         return {
-            product: 'Laptops',
-            learning_materials: 'books and laptop'
+            product: 'Black Elitebook',
+            image:'/Assets/Images/black_laptop.jpg',
+            url: 'https://georgeslangat.netlify.app',
+            inStock: false
+
         }
     }
 
