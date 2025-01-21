@@ -1,5 +1,5 @@
 const app = Vue.createApp({
-    data: function(){
+    data(){
         return {
             product: 'Black Elitebook',
             image:'/Assets/Images/black_laptop.jpg',
