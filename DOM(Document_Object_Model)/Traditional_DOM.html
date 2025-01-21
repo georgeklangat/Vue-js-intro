@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traditional DOM</title>
+</head>
+<body>
+<ul id="item-list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+<button onclick="addItem()">Add item</button>
+
+<script>
+    let itemCount = 3;
+    function addItem(){
+    itemCount++;
+    const li = document.createElement('li');
+    li.textContent = `item ${itemCount}`;
+    document.getElementById('item-list').appendChild(li);
+
+    }
+</script>
+</body>
+</html>
