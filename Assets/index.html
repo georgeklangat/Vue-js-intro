@@ -24,6 +24,15 @@
             <p v-else>out of stock</p>
             <p v-else>out of stock</p>
 
+            <ul>
+             <li v-for="detail in details">{{detail}}</li>
+            </ul>
+
+            <div v-for="variant in variants" :key="variant.id">{{variant.color}}</div>
+
+            <ul>
+              <li v-for="size in sizes">{{size.size}}</li>
+            </ul>
             <!-- solution -->
             <a :href="url" target="_blank">Made by Developer Georges</a>
            <!-- solution -->
