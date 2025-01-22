@@ -20,5 +20,5 @@ const app = Vue.createApp({
         }
     }
 
-}
+} 
 )
