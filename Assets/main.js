@@ -15,7 +15,8 @@ const app = Vue.createApp({
             sizes: [
                 {id:'black', size: [23,45,12,56,78,45]},
                 {id:'blue',size: [31,32,34,45,56,32]},
-            ]
+            ],
+            onSale:true
 
         }
     }
