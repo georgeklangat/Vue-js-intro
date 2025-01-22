@@ -9,5 +9,5 @@ const app = Vue.createApp({
         }
     }
 
-}
+} 
 )
