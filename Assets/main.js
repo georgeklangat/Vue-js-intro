@@ -6,7 +6,7 @@ const app = Vue.createApp({
             image1: '/Assets/Images/socks_blue.jpg',
             image:'/Assets/Images/black_laptop.jpg',
             url: 'https://georgeslangat.netlify.app',
-            inStock: false,
+            inventory: 1,
             details: ['50% cotton', '30% wool','20% polyester'],
             variants:[
                 {id: 2234, color:'green'},
