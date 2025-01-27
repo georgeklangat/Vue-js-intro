@@ -11,6 +11,8 @@
 <body>
 <div id="app">
     <div class="nav-bar"></div>
+        <div class="cart">cart({{ cart }})</div>
+
 
 <!--    product 1-->
     <div class="product-display">
@@ -25,7 +27,6 @@
                 <p v-if="inventory > 10">In stock</p>
                 <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
                 <p v-else>out of stock</p>
-
                 <ul>
                     <li v-for="detail in details">{{detail}}</li>
                 </ul>
@@ -35,8 +36,8 @@
                 <ul>
                     <li v-for="size in sizes">{{size.size}}</li>
                 </ul>
-                <!-- solution -->
-                <a :href="url" target="_blank">Made by Developer Georges</a>
+                <button class="button">Add to cart</button>
+
                 <!-- solution -->
             </div>
         </div>

@@ -1,6 +1,7 @@
 const app = Vue.createApp({
     data(){
         return {
+            cart:0,
             product: 'Black Elitebook',
             product1: 'Socks',
             image1: '/Assets/Images/socks_blue.jpg',
