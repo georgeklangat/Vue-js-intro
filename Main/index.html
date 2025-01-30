@@ -41,7 +41,9 @@
                 <ul>
                     <li v-for="size in sizes">{{size.size}}</li>
                 </ul>
-                <button class="button" v-on:click="addToCart">Add to cart</button>
+                <button class="button" v-on:click="addToCart"
+                        :class="{disabledButton :inventory <=0 }"
+                        :disabled="inventory <=0">Add to cart</button>
 
                 <!-- solution -->
             </div>
@@ -65,6 +67,7 @@
                  :key="laptopVariant.id"
                  @mouseover="laptopImageUpdate(laptopVariant.laptopImage)"
                  class="color-circle"
+                 :class="{disabledButton:}"
                  :style="{backgroundColor:laptopVariant.color}">
 
             </div>
@@ -75,7 +78,7 @@
 </div>
 
 <!-- Import App -->
-<script src="./main.js"></script>
+<script src="/Assets/main.js"></script>
 
 <!-- Mount App -->
 <script>
