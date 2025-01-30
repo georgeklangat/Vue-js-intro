@@ -19,7 +19,7 @@
 
         <div class="product-container">
             <div class="product-image">
-                <img v-bind:src="image1">
+                <img v-bind:src="image">
             </div>
             <div class="product-info">
 
@@ -31,7 +31,11 @@
                     <li v-for="detail in details">{{detail}}</li>
                 </ul>
 
-                <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">{{variant.color}}</div>
+                <div v-for="variant in socksVariants" :key="variant.id" @mouseover="socksImageUpdate(variant.socksImage)">
+                
+                    <h3>{{variant.color}}</h3>
+                    <hr>
+                </div>
 
                 <ul>
                     <li v-for="size in sizes">{{size.size}}</li>
@@ -48,7 +52,7 @@
 
         <div class="product-container">
             <div class="product-image">
-                <img v-bind:src="image">
+                <img v-bind:src="image1">
             </div>
             <div class="product-info">
 
@@ -56,11 +60,15 @@
                 <p v-if="onSale">On Sale</p>
                 <p v-else>In stock</p>
 
+            <div v-for="laptopVariant in laptopVariants" :key="laptopVariant.id" @mouseover="laptopImageUpdate(laptopVariant.laptopImage)">
+                <br><br>
+               <h3>{{laptopVariant.color}}</h3> 
+                <hr>
+            </div>
 
             </div>
         </div>
     </div>
-
 </div>
 
 <!-- Import App -->
