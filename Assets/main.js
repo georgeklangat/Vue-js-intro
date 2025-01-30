@@ -4,21 +4,29 @@ const app = Vue.createApp({
             cart:0,
             product: 'Black Elitebook',
             product1: 'Socks',
-            image1: '/Assets/Images/socks_blue.jpg',
-            image:'/Assets/Images/black_laptop.jpg',
+            // image1: '/Assets/Images/socks_blue.jpg',
+            // image:'/Assets/Images/black_laptop.jpg',
             url: 'https://georgeslangat.netlify.app',
             inventory: 1,
             details: ['50% cotton', '30% wool','20% polyester'],
             variants:[
-                {id: 2234, color:'green'},
-                {id: 2235, color: 'blue'},
+                {id: 2234, color:'green',image: '/Assets/Images/socks_green.jpg'},
+                {id: 2235, color: 'blue', image: '/Assets/Images/socks_blue.jpg'},
             ],
             sizes: [
-                {id:'black', size: [23,45,12,56,78,45]},
-                {id:'blue',size: [31,32,34,45,56,32]},
+                {id:'black', size: 56},
+                {id:'blue',size: 57},
             ],
-            onSale:true
+            onSale:true,
 
+        }
+    },
+    methods: {
+        addToCart(){
+            this.cart +=1
+        },
+        updateImage(variantImage){
+            this.image = variantImage
         }
     }
 
