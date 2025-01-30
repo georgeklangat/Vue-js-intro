@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Patient Record System</title>
+    <link rel="stylesheet" href="/Patient_records/records.css"/>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="patientApp">
+    <div class="nav-bar">🏥 Hospital Management</div>
+    <div class="queue">🧑‍🤝‍🧑Patients in Queue: {{ queue }}</div>
+
+    <div class="patient-display">
+        <div class="patient-container">
+            <div class="patient-info">
+                <h1>Patient Record</h1>
+                <p><strong>ID:</strong> {{ currentPatient.id }}</p>
+                <p><strong>Name:</strong> {{ currentPatient.name }}</p>
+                <p><strong>Age:</strong> {{ currentPatient.age }}</p>
+                <p><strong>Condition:</strong> {{ currentPatient.condition }}</p>
+                <p><strong>Doctor Assigned:</strong> Dr. {{ currentPatient.doctor }}</p>
+
+                <div v-for="patient in patients"
+                     :key="patient.id"
+                     @mouseover="updatePatientRecord(patient)"
+                     class="patient-id"
+                     :style="{ backgroundColor: 'lightblue' }">
+                    Patient ID: {{ patient.id }}
+                </div>
+
+                <button class="button" v-on:click="addToQueue">Add to Queue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/Patient_records/record.js"></script>
+
+<script>
+    const mountedPatientApp = patientApp.mount('#patientApp')
+</script>
+</body>
+</html>
