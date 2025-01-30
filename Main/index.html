@@ -31,10 +31,11 @@
                     <li v-for="detail in details">{{detail}}</li>
                 </ul>
 
-                <div v-for="variant in socksVariants" :key="variant.id" @mouseover="socksImageUpdate(variant.socksImage)">
-                
-                    <h3>{{variant.color}}</h3>
-                    <hr>
+                <div v-for="variant in socksVariants"
+                     :key="variant.id"
+                     @mouseover="socksImageUpdate(variant.socksImage)"
+                     class="color-circle"
+                     :style="{backgroundColor:variant.color}">
                 </div>
 
                 <ul>
@@ -60,10 +61,12 @@
                 <p v-if="onSale">On Sale</p>
                 <p v-else>In stock</p>
 
-            <div v-for="laptopVariant in laptopVariants" :key="laptopVariant.id" @mouseover="laptopImageUpdate(laptopVariant.laptopImage)">
-                <br><br>
-               <h3>{{laptopVariant.color}}</h3> 
-                <hr>
+            <div v-for="laptopVariant in laptopVariants"
+                 :key="laptopVariant.id"
+                 @mouseover="laptopImageUpdate(laptopVariant.laptopImage)"
+                 class="color-circle"
+                 :style="{backgroundColor:laptopVariant.color}">
+
             </div>
 
             </div>
