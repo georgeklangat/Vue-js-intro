@@ -42,11 +42,10 @@ body {
   }
   
   
-  .disabledButton {
-    background-color: #d8d8d8;
-    cursor: not-allowed;
+  .disabledButton{
+    background-color:#d8d8d8;
+    cursor:not-allowed;
   }
-  
   h1 {
     font-size: 50px;
   }
@@ -87,6 +86,10 @@ body {
     -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
     -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
+    font-weight: bold;
+    color: #282828;
+    align-content: center;
+    text-align: center;
   }
   
   .out-of-stock-img {

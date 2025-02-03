@@ -10,73 +10,76 @@
 </head>
 <body>
 <div id="app">
-    <div class="nav-bar"></div>
-        <div class="cart">cart({{ cart }})</div>
+    <div class="nav-bar">
+        <h3>Vue Mastery Store</h3>
+    </div>
+    <div class="cart">Cart ({{ cartCount }})</div>
 
-
-<!--    product 1-->
+    <!-- Product: Socks -->
     <div class="product-display">
-
         <div class="product-container">
             <div class="product-image">
-                <img v-bind:src="image">
+                <img :src="currentSocks.image" alt="Socks">
             </div>
             <div class="product-info">
+                <h1>{{ socksTitle }}</h1>
+                <p v-if="currentSocks.stock > 10">In Stock</p>
+                <p v-else-if="currentSocks.stock > 0">Almost Sold Out!</p>
+                <p v-else>Out of Stock</p>
 
-                <h1>{{ product1 }}</h1>
-                <p v-if="inventory > 10">In stock</p>
-                <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
-                <p v-else>out of stock</p>
                 <ul>
-                    <li v-for="detail in details">{{detail}}</li>
+                    <li v-for="detail in socksDetails" :key="detail">{{ detail }}</li>
                 </ul>
 
-                <div v-for="variant in socksVariants"
+                <div v-for="(variant, index) in socksVariants"
                      :key="variant.id"
-                     @mouseover="socksImageUpdate(variant.socksImage)"
+                     @mouseover="selectSocksVariant(index)"
                      class="color-circle"
-                     :style="{backgroundColor:variant.color}">
+                     :style="{ backgroundColor: variant.color }">
                 </div>
 
                 <ul>
-                    <li v-for="size in sizes">{{size.size}}</li>
+                    <li v-for="size in availableSizes" :key="size.id">{{ size.value }}</li>
                 </ul>
-                <button class="button" v-on:click="addToCart"
-                        :class="{disabledButton :inventory <=0 }"
-                        :disabled="inventory <=0">Add to cart</button>
 
-                <!-- solution -->
+                <button class="button"
+                        @click="addToCart('socks')"
+                        :class="{ disabledButton: !currentSocks.stock }"
+                        :disabled="!currentSocks.stock">
+                    Add to Cart
+                </button>
             </div>
         </div>
     </div>
 
-<!--    product 2-->
+    <!-- Product: Laptops -->
     <div class="product-display">
-
         <div class="product-container">
             <div class="product-image">
-                <img v-bind:src="image1">
+                <img :src="currentLaptop.image" alt="Laptop">
             </div>
             <div class="product-info">
+                <h1>{{ laptopTitle }}</h1>
+                <p v-if="currentLaptop.stock > 0">In Stock</p>
+                <p v-else>Sold Out!</p>
 
-                <h1>{{ product }}</h1>
-                <p v-if="onSale">On Sale</p>
-                <p v-else>In stock</p>
+                <div v-for="(variant, index) in laptopVariants"
+                     :key="variant.id"
+                     @mouseover="selectLaptopVariant(index)"
+                     class="color-circle"
+                     :style="{ backgroundColor: variant.color }">
+                </div>
 
-            <div v-for="laptopVariant in laptopVariants"
-                 :key="laptopVariant.id"
-                 @mouseover="laptopImageUpdate(laptopVariant.laptopImage)"
-                 class="color-circle"
-                 :class="{disabledButton:}"
-                 :style="{backgroundColor:laptopVariant.color}">
-
-            </div>
-
+                <button class="button"
+                        @click="addToCart('laptop')"
+                        :class="{ disabledButton: !currentLaptop.stock }"
+                        :disabled="!currentLaptop.stock">
+                    Add to Cart
+                </button>
             </div>
         </div>
     </div>
 </div>
-
 <!-- Import App -->
 <script src="/Assets/main.js"></script>
 
