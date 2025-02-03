@@ -1,41 +1,54 @@
 const app = Vue.createApp({
-    data(){
-        return {
-            cart:0,
-            product: 'Laptops',
-            product1: 'Socks',
-            image: '/Assets/Images/socks_blue.jpg',
-            image1:'/Assets/Images/black_laptop.jpg',
-            url: 'https://georgeslangat.netlify.app',
-            inventory: 10,
-            details: ['50% cotton', '30% wool','20% polyester'],
-            socksVariants:[
-                {id: 2234, color:'green', socksImage: '/Assets/Images/socks_green.jpg'},
-                {id: 2235, color: 'darkblue', socksImage: '/Assets/Images/socks_blue.jpg'},
-            ],
-            laptopVariants:[
-                {id:45, color:'black', laptopImage : '/Assets/Images/black_laptop.jpg'},
-                {id:46,color:'white', laptopImage : '/Assets/Images/white_laptop.jpg'}
-            ],
-            sizes: [
-                {id:1, size: 56},
-                {id:2,size: 57},
-            ],
-            quantity:10,
-
-        }
-    },
-    methods: {
-        addToCart(){
-            this.cart +=1
+        data() {
+            return {
+                cartCount: 0,
+                brand: 'Vue Mastery',
+                socksDetails: ['50% Cotton', '30% Wool', '20% Polyester'],
+                socksVariants: [
+                    { id: 2234, color: 'green', image: '/Assets/Images/socks_green.jpg', stock: 50 },
+                    { id: 2235, color: 'darkblue', image: '/Assets/Images/socks_blue.jpg', stock: 0 }
+                ],
+                laptopVariants: [
+                    { id: 45, color: 'black', image: '/Assets/Images/black_laptop.jpg', stock: 50 },
+                    { id: 46, color: 'white', image: '/Assets/Images/white_laptop.jpg', stock: 0 }
+                ],
+                availableSizes: [
+                    { id: 1, value: 56 },
+                    { id: 2, value: 57 }
+                ],
+                selectedSocksIndex: 0,
+                selectedLaptopIndex: 0
+            };
         },
-        socksImageUpdate(socksvariant){
-            this.image = socksvariant
+        computed: {
+            socksTitle() {
+                return `${this.brand} Socks`;
+            },
+            laptopTitle() {
+                return `${this.brand} Laptops`;
+            },
+            currentSocks() {
+                return this.socksVariants[this.selectedSocksIndex];
+            },
+            currentLaptop() {
+                return this.laptopVariants[this.selectedLaptopIndex];
+            }
         },
-        laptopImageUpdate(laptopvariant){
-            this.image1 = laptopvariant
+        methods: {
+            addToCart(productType) {
+                if (productType === 'socks' && this.currentSocks.stock > 0) {
+                    this.cartCount++;
+                    this.currentSocks.stock--;
+                } else if (productType === 'laptop' && this.currentLaptop.stock > 0) {
+                    this.cartCount++;
+                    this.currentLaptop.stock--;
+                }
+            },
+            selectSocksVariant(index) {
+                this.selectedSocksIndex = index;
+            },
+            selectLaptopVariant(index) {
+                this.selectedLaptopIndex = index;
+            }
         }
-    }
-
-} 
-)
+    });
