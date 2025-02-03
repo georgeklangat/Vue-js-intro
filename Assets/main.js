@@ -7,11 +7,11 @@ const app = Vue.createApp({
             image: '/Assets/Images/socks_blue.jpg',
             image1:'/Assets/Images/black_laptop.jpg',
             url: 'https://georgeslangat.netlify.app',
-            inventory: 0,
+            inventory: 10,
             details: ['50% cotton', '30% wool','20% polyester'],
             socksVariants:[
                 {id: 2234, color:'green', socksImage: '/Assets/Images/socks_green.jpg'},
-                {id: 2235, color: 'blue', socksImage: '/Assets/Images/socks_blue.jpg'},
+                {id: 2235, color: 'darkblue', socksImage: '/Assets/Images/socks_blue.jpg'},
             ],
             laptopVariants:[
                 {id:45, color:'black', laptopImage : '/Assets/Images/black_laptop.jpg'},
@@ -21,7 +21,7 @@ const app = Vue.createApp({
                 {id:1, size: 56},
                 {id:2,size: 57},
             ],
-            onSale:true,
+            quantity:10,
 
         }
     },

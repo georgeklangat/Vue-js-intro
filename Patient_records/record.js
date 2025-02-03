@@ -12,8 +12,8 @@ const patientApp = Vue.createApp({
     },
 
     methods: {
-        addToQueue() {
-            this.queue += 1;
+        addToQueue(){
+            this.queue +=1
         },
 
         updatePatientRecord(patient) {

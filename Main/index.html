@@ -60,17 +60,18 @@
             <div class="product-info">
 
                 <h1>{{ product }}</h1>
-                <p v-if="onSale">On Sale</p>
+                <p v-if="quantity<=0">Sold Out!</p>
                 <p v-else>In stock</p>
 
             <div v-for="laptopVariant in laptopVariants"
                  :key="laptopVariant.id"
                  @mouseover="laptopImageUpdate(laptopVariant.laptopImage)"
                  class="color-circle"
-                 :class="{disabledButton:}"
                  :style="{backgroundColor:laptopVariant.color}">
 
             </div>
+                <button class="button" @click="addToCart"
+                :class="{disabledButton: quantity<=0}">Add to cart</button>
 
             </div>
         </div>
