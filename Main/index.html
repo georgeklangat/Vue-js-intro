@@ -11,18 +11,19 @@
 <body>
 <div id="app">
     <div class="nav-bar">
-        <h3>Vue Mastery Store</h3>
+        <h1>Langats Store</h1>
     </div>
-    <div class="cart">Cart ({{ cartCount }})</div>
+
 
     <!-- Product: Socks -->
+    <div class="cart">Cart ({{ cartCountSocks }})</div>
     <div class="product-display">
         <div class="product-container">
             <div class="product-image">
                 <img :src="currentSocks.image" alt="Socks">
             </div>
             <div class="product-info">
-                <h1>{{ socksTitle }}</h1>
+                <h2>{{ socksTitle }}</h2>
                 <p v-if="currentSocks.stock > 10">In Stock</p>
                 <p v-else-if="currentSocks.stock > 0">Almost Sold Out!</p>
                 <p v-else>Out of Stock</p>
@@ -53,13 +54,14 @@
     </div>
 
     <!-- Product: Laptops -->
+    <div class="cart">Cart ({{ cartCountLaptop }})</div>
     <div class="product-display">
         <div class="product-container">
             <div class="product-image">
                 <img :src="currentLaptop.image" alt="Laptop">
             </div>
             <div class="product-info">
-                <h1>{{ laptopTitle }}</h1>
+                <h2>{{ laptopTitle }}</h2>
                 <p v-if="currentLaptop.stock > 0">In Stock</p>
                 <p v-else>Sold Out!</p>
 
@@ -74,6 +76,36 @@
                         @click="addToCart('laptop')"
                         :class="{ disabledButton: !currentLaptop.stock }"
                         :disabled="!currentLaptop.stock">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+     <!-- Product: phones -->
+    <div class="cart">Cart ({{ cartCountPhone }})</div>
+    <div class="product-display">
+        <div class="product-container">
+            <div class="product-image">
+                <img :src="currentPhone.image" alt="Phone">
+            </div>
+            <div class="product-info">
+                <h2>{{ phoneTitle }}</h2>
+                <p v-if="currentPhone.stock > 10 ">In Stock</p>
+                <p v-else-if="currentPhone.stock > 0 ">Almost Sold Out</p>
+                <p v-else>Sold Out!</p>
+
+                <div v-for="(variant, index) in phoneVariants"
+                     :key="variant.id"
+                     @mouseover="selectPhoneVariant(index)"
+                     class="color-circle"
+                     :style="{ backgroundColor: variant.color }">
+                </div>
+
+                <button class="button"
+                        @click="addToCart('phone')"
+                        :class="{ disabledButton: !currentPhone.stock }"
+                        :disabled="!currentPhone.stock">
                     Add to Cart
                 </button>
             </div>
