@@ -28,6 +28,9 @@
                 <p v-else-if="currentSocks.stock > 0">Almost Sold Out!</p>
                 <p v-else>Out of Stock</p>
 
+                <p>{{ sockStock }}</p>
+
+
                 <ul>
                     <li v-for="detail in socksDetails" :key="detail">{{ detail }}</li>
                 </ul>

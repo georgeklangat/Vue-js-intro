@@ -50,7 +50,10 @@ const app = Vue.createApp({
             },
              currentPhone(){
                 return this.phoneVariants[this.selectedPhoneIndex];
-             }
+             },
+            sockStock(){
+                return `${this.socksVariants[this.selectedSocksIndex].stock} Socks in Stock `;
+            }
         },
         methods: {
             addToCart(productType) {
